@@ -5,4 +5,5 @@ urlpatterns = [
     path('', views.inicio),
     path('colegio', views.colegio),
     path('agenda',views.agenda),
+    path('agenda2', views.agenda2),
 ]

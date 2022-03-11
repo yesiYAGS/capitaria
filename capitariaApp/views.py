@@ -8,5 +8,7 @@ def colegio(request):
 
 def agenda(request):
     return render(request,'agenda.html')
+def agenda2(request):
+    return render(request,'agenda2.html')
 
 # Create your views here.
