@@ -26,6 +26,7 @@
     padding-left: 5px;
     padding-right: 5px;
 }
+/* *************************************TABLA SIN JSON ************************************************* */
 .container {
     display: grid;
     /* grid-gap: 1rem; */
@@ -57,4 +58,33 @@
 .no-disponible{
     background-color: coral;
     color: brown;
+}
+/* ######################################## *TABLA CON JSON* ############################################################# */
+#calendar{
+    background: rgb(196, 99, 99);
+    /* height: 70vh; */
+    /* width: 50vw; */
+    color: #fff;
+    display: grid;
+    grid-template-columns: 10vw repeat(5, calc(100%/6)) ;
+    /* grid-template-rows: 3vh 76vh; */
+}
+#calenderHeaders{
+    display: flex;
+    flex-direction: row;
+    grid-column: 2 / end;
+    grid-row: 1 / 2;
+}
+.calendar-header{
+    width: calc(100%/5);
+    text-align: center;
+    border: 1px solid #fff;
+}
+#left-time-wrp{
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+}
+.timeblock{
+    text-align: center;
+    border: 1px solid #fff;
 }
