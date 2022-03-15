@@ -4,9 +4,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style_Colegio.css' %}">
     <title>Colegio</title>
 </head>
 <body>
-    <h1>aqui se veran los cursos </h1>
+    <h1>Aqui se veran los alumnos y los cursos en donde estan </h1>
+
+    <table class="table">
+        <tr>
+            <th>Nombre alumno</th>
+            <th>Curso</th>
+        </tr>
+        {% for estudiante in estudiante %}
+            <tr>
+                <td>{{ estudiante.nombre }} {{ estudiante.apellido }}</td>
+                {% for curso in estudiante.curso.all %}
+                    <td>{{curso.nombre}}/</td>
+                {% endfor %} 
+            </tr>
+        {% endfor %}  
+    </table>
+
+   <h2>Cursos, sus promedios y su profesor a cargo</h2>
+   
+    <table class="table">
+        <tr>
+            <th>Nombre Curso</th>
+            <th>Promedio del curso</th>
+            <th>Profesor a cargo</th>
+        </tr>
+        {% for curso in curso %}
+            <tr>
+                <td>{{ curso.nombre }}</td>
+                <td>{{ curso.promedio }}</td>
+                <td>{{ curso.profesor.nombre }} {{ curso.profesor.apellido }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Pruebas dadas </h2>
+    <table class="table">
+        <tr>
+            <th>Nota</th>
+            <th>Curso</th>
+        </tr>
+        {% for prueba in prueba %}
+            <tr>
+                <td>{{ prueba.nota }}</td>
+                <td>{{ prueba.curso.nombre }}</td>
+            </tr>
+        {% endfor %}
+    </table>
 </body>
 </html>

@@ -1,11 +1,18 @@
 from django.shortcuts import render, redirect, HttpResponse
 from django.http import JsonResponse
+from .models import *
 
 def inicio (request):
     return render (request,'inicio.html')
 
 def colegio(request):
-    return render(request,'colegio.html')
+    context = {
+        "curso":Curso.objects.all(),
+        "profesor": Profesor.objects.all(),
+        "estudiante": Estudiante.objects.all(),
+        "prueba": Prueba.objects.all(),
+    }
+    return render(request,'colegio.html', context)
 
 def agenda(request):
     return render(request,'agenda.html')
